@@ -2,17 +2,17 @@ import streamlit as st
 import pandas as pd
 from streamlit_option_menu import option_menu
 from add_delivery import add_new_delivery
-#from ML_prediction import ML_prediction
-#from global_interpretation import global_interpretation
+from ML_prediction import ML_prediction
+from global_interpretation import global_interpretation
 
 st.set_page_config(
     page_title='DELIVERIES',
-    page_icon='🏥',
+    page_icon='🍕',
     layout='wide',
     initial_sidebar_state='expanded',
 )
 
-st.title('🏥 DELIVERIES')
+st.title('🍕 DELIVERIES')
 
 with st.sidebar:
     page = option_menu('Main Menu', ['Home', 'Add New Delivery', 'Machine Learning Prediction', 'Global Interpretation'], 
@@ -24,7 +24,7 @@ with st.sidebar:
         "nav-link-selected": {"background-color": "grey"},
     })
 
-data = pd.read_csv('stage_1_balanced.csv', sep=';')
+data = pd.read_csv('delivery_challenge_edited.csv', sep=',')
 
 if 'data' not in st.session_state:
     st.session_state.data=data
@@ -38,8 +38,7 @@ if page == 'Add New Delivery':
     add_new_delivery()
 
 if page == 'Machine Learning Prediction':
-    #ML_prediction()
-    st.write('ML')
-
+    ML_prediction()
+    
 if page == 'Global Interpretation':
-    st.write('Global Interpretation')
+   global_interpretation()
