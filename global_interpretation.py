@@ -16,7 +16,7 @@ def global_interpretation():
     # Managing patients data as needed
     df = st.session_state.data
     try:
-        df = df.drop(['ICU'], axis=1)
+        df = df.drop(['Time_taken (min)'], axis=1)
         df = df.drop(['Unnamed: 0'], axis=1)
     except:
         pass
