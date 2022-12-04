@@ -25,10 +25,8 @@ with st.sidebar:
     })
 
 data = pd.read_csv('delivery_challenge_edited.csv', sep=',')
-
 if 'data' not in st.session_state:
     st.session_state.data=data
-
 
 if page == 'Home':
     if st.checkbox('Display data'):

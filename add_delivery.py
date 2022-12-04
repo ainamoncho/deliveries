@@ -17,10 +17,10 @@ def add_new_delivery():
         if st.form_submit_button('Add Patient'):
             
             if st.session_state.data.shape[0] == MAX_ROWS:
-                st.error('Add patient limit reached. Cannot add any more patients')
+                st.error('Add deliveries limit reached. Cannot add any more deliveries')
             else:
                 row = st.session_state.data.shape[0]
                 st.session_state.data.loc[row] = list
-                st.info(f'Patient: {row} added')
+                st.info(f'Delivery: {row} added')
 
     st.dataframe(st.session_state.data)
